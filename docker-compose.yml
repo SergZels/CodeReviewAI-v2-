@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+  codereview:
+    build:
+      context: .
+    container_name: CodeReviewAI
+    command: uvicorn main:app --host 0.0.0.0 --port 7777
+    restart: always
+    volumes:
+      - ./:/usr/src/app/
+    ports:
+      - "7777:7777"
+
+  redis:
+    image: "redis:latest"
+    container_name: "RedisCodeReviewAI"
+    ports:
+      - "6379:6379"
+    restart: always
+
+
+

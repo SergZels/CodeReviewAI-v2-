@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>CodeReviewAI</title>
+        <style>
+        body {
+            display: flex;
+            flex-direction: column;
+/*            align-items: center;*/
+            justify-content: center;
+            height: 100vh;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            background: url(https://www.unite.ai/wp-content/uploads/2022/09/conny-schneider-pREq0ns_p_E-unsplash-1000x593.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        form,h5,select{
+        margin-top:10px;
+        }
+
+        footer{
+        margin-top:50px;
+        }
+
+        input,textarea {
+        width:100%;
+        margin-top:10px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        #target {
+            text-align: left;
+        }
+
+       footer {
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container d-flex  justify-content-center">
+
+<div class="card text-center" style="width: 90%;">
+            <div class="card-body">
+                <h1 class="card-title">Coding Assigment Auto-Review Tool</h1>
+                <textarea id="description" name="description" placeholder="Assignment description" rows="4" cols="50"></textarea>
+                <input id="URL" type="text"  name="git_hub_repo_url" placeholder="Git Hub repo URL">
+                <input id="API_KEY" type="text" name="openai_api_key" placeholder="OpenAI api key">
+                  <select id="level" name="level">
+                    <option value="junior">Junior</option>
+                    <option value="middle">Middle</option>
+                    <option value="senior">Senior</option>
+                 </select>
+
+               <form >
+
+                <button type="button"
+                        class="btn btn-success"
+                        @click="showSniper=true"
+                        hx-post="https://zelse.asuscomm.com/CodeReviewAI/reviewHTMX"
+                        hx-swap="outerHTML"
+                        hx-target="#target"
+                        hx-include="#URL, #API_KEY, #level, #description">
+                        REVIEW</button>
+
+               </form>
+                    <div id="target"></div>
+            </div>
+        </div>
+</div>
+
+<footer>
+    <div class="alert alert-primary" role="alert">
+      <a href="https://zelse.asuscomm.com/PortfolioReact/"><h5>Zelse Soft 2024  (Portfolio)</h5></a>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

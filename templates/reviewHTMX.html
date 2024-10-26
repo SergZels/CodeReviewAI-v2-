@@ -1,0 +1,12 @@
+<h5>Files found in repository</h5>
+<div style="max-height: 300px; overflow-y: scroll; border: 1px solid #ccc; padding: 10px;">
+    <ul>
+        {% for file in file_paths %}
+            <li>{{ file }}</li>
+        {% endfor %}
+    </ul>
+</div>
+<h5>Review Result</h5>
+<div style="max-height: 300px; overflow-y: scroll; border: 1px solid #ccc; padding: 10px;">
+    {{ review_result  }}
+</div>
