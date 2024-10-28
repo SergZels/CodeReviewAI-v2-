@@ -1,12 +1,9 @@
 fastapi
 uvicorn
-requests
 python-dotenv
 aiofiles
 GitPython
 openai
-jinja2
-python-multipart
 pytest
 pytest-asyncio
 redis

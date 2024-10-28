@@ -25,7 +25,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 async def get_redis():
     redis = await aioredis.from_url("redis://rediscoderewaiv2:6379")
     try:
