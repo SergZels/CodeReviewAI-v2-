@@ -11,7 +11,7 @@ services:
     ports:
       - "7777:7777"
     depends_on:
-      -  rediscoderewai
+      -  rediscoderewaiv2
 
   rediscoderewaiv2:
     image: "redis:latest"

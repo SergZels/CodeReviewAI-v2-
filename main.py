@@ -73,7 +73,7 @@ async def review(review_request: Review, redis=Depends(get_redis)):
     answer = Answer(file_paths=file_paths, key_problems=key_problems_text,
                     rating=rating_text, conclusion=conclusion_text)
 
-    await redis.setex(cache_key, 60, json.dumps(answer.dict()))
+    await redis.setex(cache_key, 60*15, json.dumps(answer.dict()))
     logger.info(f"Request received - {review_request}")
     return answer
 
@@ -127,7 +127,7 @@ async def review(review_request: ReviewRequestReact, redis=Depends(get_redis)):
                                GPTReview=review_result, key_problems=key_problems_text,
                                rating=rating_text, conclusion=conclusion_text)
 
-    await redis.setex(cache_key, 60, json.dumps(answer.dict()))
+    await redis.setex(cache_key, 60*15, json.dumps(answer.dict()))
     logger.info(f"Request received - {review_request} \nAnswer - {answer}")
     return answer
 
